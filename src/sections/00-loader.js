@@ -3,7 +3,7 @@
 import { gsap, RM } from '../lib/motion.js';
 import { $ } from '../lib/dom.js';
 
-const HERO_IMG = '/assets/fotos/hero-palillos-maki.webp';
+const HERO_IMG = '/assets/fotos/territorio-03.webp';
 
 /** Espera de verdad: fuentes + imagen del hero decodificada. */
 function assetsReady() {

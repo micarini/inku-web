@@ -69,11 +69,11 @@
 }
 .hero__foto {
   height: 100%;
-  background: #05090c;
+  background: var(--tinta);
 }
 .hero__foto img {
   height: 112%;
-  object-position: 50% 40%;
+  object-position: 50% 62%;
 }
 
 @media (max-width: 767px) {

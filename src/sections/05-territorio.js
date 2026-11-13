@@ -8,7 +8,7 @@ const T = {
   fotos: [
     ['fotos/territorio-01', 'La mano del chef sobre una fila de cortes de pescado en la tabla'],
     ['fotos/territorio-02', 'Textura de madera quemada yakisugi'],
-    ['fotos/territorio-03', 'Un nigiri de atún sobre una piedra clara'],
+    ['fotos/feed-09', 'El chef termina una pieza con cuchara y fuego'],
     ['fotos/territorio-04', 'Interior del salón en tonos madera y terracota'],
   ],
 };

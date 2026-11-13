@@ -7,7 +7,7 @@ const T = {
   bajada: 'Omakase de autor — 2026',
   scroll: 'Desliza ↓',
   scrollJa: 'スクロール',
-  altFoto: 'Un maki de salmón sostenido con palillos de madera sobre fondo negro',
+  altFoto: 'Un nigiri de atún sobre una piedra clara, en la barra en penumbra',
 };
 
 export const template = `
@@ -26,7 +26,7 @@ export const template = `
     <p class="hero__scroll">${T.scroll} <span aria-hidden="true">/</span> ${ja(T.scrollJa)}</p>
   </div>
   <div class="hero__foto foto">
-    ${foto('fotos/hero-palillos-maki', T.altFoto, { sizes: '(min-width: 768px) 53vw, 100vw', eager: true })}
+    ${foto('fotos/territorio-03', T.altFoto, { sizes: '(min-width: 768px) 53vw, 100vw', eager: true })}
   </div>
 </section>`;
 
