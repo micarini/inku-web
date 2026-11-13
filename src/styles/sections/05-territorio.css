@@ -1,0 +1,63 @@
+.territorio {
+  display: flex;
+  align-items: center;
+}
+.territorio__grid {
+  display: grid;
+  grid-template-columns: 4fr 8fr;
+  gap: clamp(28px, 5vw, 7rem);
+  align-items: center;
+  padding-block: clamp(110px, 9rem, 150px) clamp(64px, 6rem, 100px);
+}
+.territorio .cuerpo {
+  margin-top: clamp(20px, 2.4rem, 44px);
+}
+.territorio .remate {
+  margin-top: clamp(40px, 6rem, 110px);
+}
+/* grilla asimétrica del manual: una vertical grande + textura apaisada + dos chicas */
+.territorio__fotos {
+  display: grid;
+  grid-template-columns: 540fr 268fr 268fr;
+  grid-template-rows: 380fr 396fr;
+  gap: clamp(8px, 1.5rem, 24px);
+  aspect-ratio: 1124 / 800;
+  max-height: 78vh;
+  justify-self: end;
+  width: 100%;
+}
+.territorio__f--1 {
+  grid-row: 1 / 3;
+}
+.territorio__f--2 {
+  grid-column: 2 / 4;
+}
+@media (max-width: 1023px) {
+  .territorio__grid {
+    grid-template-columns: 1fr;
+  }
+  .territorio .remate {
+    margin-top: 28px;
+  }
+}
+@media (max-width: 767px) {
+  .territorio__fotos {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    aspect-ratio: auto;
+    max-height: none;
+  }
+  .territorio__f--1 {
+    grid-row: auto;
+    grid-column: 1 / 3;
+    aspect-ratio: 4 / 5;
+  }
+  .territorio__f--2 {
+    grid-column: 1 / 3;
+    aspect-ratio: 3 / 2;
+  }
+  .territorio__f--3,
+  .territorio__f--4 {
+    aspect-ratio: 2 / 3;
+  }
+}

@@ -1,0 +1,437 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html {
+  -webkit-text-size-adjust: 100%;
+  background: var(--tinta);
+}
+body {
+  margin: 0;
+  background: var(--tinta);
+  color: var(--washi);
+  font-family: var(--sans);
+  font-size: 1rem;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+body.is-loading {
+  overflow: hidden;
+}
+img,
+svg,
+canvas {
+  display: block;
+  max-width: 100%;
+}
+img {
+  height: auto;
+}
+h1,
+h2,
+h3,
+p,
+ul,
+ol,
+dl,
+dd,
+figure {
+  margin: 0;
+}
+ul,
+ol {
+  padding: 0;
+  list-style: none;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  border-radius: 0;
+  cursor: pointer;
+}
+:focus-visible {
+  outline: 2px solid var(--fg, var(--washi));
+  outline-offset: 3px;
+}
+::selection {
+  background: var(--washi);
+  color: var(--tinta);
+}
+.vh {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+.skip {
+  position: fixed;
+  top: 8px;
+  left: 8px;
+  z-index: 200;
+  padding: 12px 16px;
+  background: var(--washi);
+  color: var(--tinta);
+  transform: translateY(-200%);
+}
+.skip:focus {
+  transform: none;
+}
+
+/* ───────── Secciones ───────── */
+.sec {
+  position: relative;
+  background: var(--bg);
+  color: var(--fg);
+  min-height: 100vh;
+  min-height: 100svh;
+}
+.sec--tinta {
+  --bg: var(--tinta);
+}
+.sec--madera {
+  --bg: var(--madera);
+}
+.sec--ciruelo {
+  --bg: var(--ciruelo);
+}
+.sec--washi {
+  --bg: var(--washi);
+  --fg: var(--tinta);
+  --fg-70: rgb(12 12 10 / 0.72);
+  --fg-40: rgb(12 12 10 / 0.5);
+  --line: rgb(12 12 10 / 0.14);
+}
+.wrap {
+  width: 100%;
+  max-width: var(--maxw);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+/* Encabezado editorial: INKU — MANUAL DE MARCA / 0X — NOMBRE */
+.sec-head {
+  position: absolute;
+  inset: 0 0 auto 0;
+  z-index: 4;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: clamp(20px, 3.4rem, 56px) var(--gutter) 0;
+  pointer-events: none;
+}
+.eyebrow,
+.sec-head span {
+  font-family: var(--sans);
+  font-size: max(11px, 0.72rem);
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--fg-40);
+  line-height: 1.4;
+}
+.titulo {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(36px, 4.6vw, 6rem);
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+}
+.titulo--s {
+  font-size: clamp(30px, 3.1vw, 4rem);
+}
+.ja {
+  font-family: var(--serif);
+  font-size: clamp(18px, 1.5rem, 2rem);
+  color: var(--fg-40);
+  letter-spacing: 0.08em;
+}
+.ja--rojo {
+  color: var(--sello);
+}
+.cuerpo {
+  font-size: clamp(15px, 1.06rem, 1.2rem);
+  line-height: 1.75;
+  color: var(--fg-70);
+  max-width: 34em;
+  text-wrap: pretty;
+}
+.remate {
+  font-family: var(--serif);
+  font-size: clamp(18px, 1.5rem, 1.9rem);
+  line-height: 1.4;
+  color: var(--sello);
+}
+.nota {
+  font-size: max(12px, 0.8rem);
+  line-height: 1.6;
+  color: var(--fg-40);
+}
+.foto {
+  position: relative;
+  overflow: hidden;
+  background: var(--madera);
+}
+.foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* Placeholder para assets que falten (§3) */
+.falta {
+  display: grid;
+  place-items: center;
+  background: var(--madera);
+  color: var(--washi-40);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-align: center;
+  padding: 8px;
+}
+
+/* Reveals base: el estado inicial lo pone JS (así sin JS todo se ve). */
+.line {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.08em;
+  margin-bottom: -0.08em;
+}
+.line__in {
+  display: block;
+  will-change: transform;
+}
+
+/* Borde de tinta entre secciones */
+.sec__edge {
+  position: absolute;
+  left: 0;
+  bottom: calc(100% - 1px);
+  width: 100%;
+  height: clamp(28px, 7vh, 90px);
+  z-index: 3;
+  pointer-events: none;
+  transform-origin: 50% 100%;
+  color: var(--bg);
+}
+.sec__edge path {
+  fill: currentColor;
+}
+
+/* ───────── Navegación global ───────── */
+.topbar {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px var(--gutter);
+  background: var(--tinta);
+  border-bottom: 1px solid var(--linea);
+  transition: transform 0.5s var(--ease-ink), opacity 0.5s, background 0.4s, border-color 0.4s;
+}
+/* arriba de todo (portada) la barra no lleva fondo */
+.topbar.is-top {
+  background: transparent;
+  border-bottom-color: transparent;
+}
+.topbar.is-hidden {
+  transform: translateY(-110%);
+  opacity: 0;
+}
+.topbar__sello {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+}
+.topbar__sello img {
+  height: 38px;
+  width: auto;
+}
+.topbar__label {
+  font-size: max(11px, 0.72rem);
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--washi-70);
+}
+.progress {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 2px;
+  height: 100vh;
+  z-index: 61;
+  background: var(--linea);
+  pointer-events: none;
+}
+.progress span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--washi);
+  transform: scaleY(0);
+  transform-origin: 50% 0;
+}
+/* Línea de dibujo continua */
+.trazo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 5;
+  pointer-events: none;
+  mix-blend-mode: difference;
+  overflow: visible;
+}
+.trazo path {
+  fill: none;
+  stroke: #33322e;
+  stroke-width: 1.25;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+#contenido {
+  position: relative;
+}
+
+/* Cursor de tinta */
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 300;
+  pointer-events: none;
+  display: none;
+}
+.cursor span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: grid;
+  place-items: center;
+  width: 8px;
+  height: 8px;
+  margin: -4px 0 0 -4px;
+  border-radius: 50%;
+  background: var(--washi);
+  color: var(--tinta);
+  font-size: 0;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  mix-blend-mode: difference;
+  transition: width 0.3s var(--ease-out), height 0.3s var(--ease-out), margin 0.3s var(--ease-out), font-size 0.2s;
+  white-space: nowrap;
+}
+.cursor.is-on span {
+  width: 36px;
+  height: 36px;
+  margin: -18px 0 0 -18px;
+}
+.cursor.has-label span {
+  width: 76px;
+  height: 76px;
+  margin: -38px 0 0 -38px;
+  font-size: 11px;
+  mix-blend-mode: normal;
+}
+@media (pointer: fine) {
+  .cursor {
+    display: block;
+  }
+}
+
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 32px;
+  z-index: 120;
+  padding: 10px 18px;
+  background: var(--washi);
+  color: var(--tinta);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  transform: translate(-50%, 16px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s, transform 0.3s var(--ease-out);
+}
+.toast.is-on {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+/* ───────── 00 · Loader ───────── */
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  background: var(--tinta);
+}
+.loader__stroke {
+  width: min(78vw, 1100px);
+  overflow: visible;
+}
+.loader__path {
+  fill: none;
+  stroke: var(--washi);
+  stroke-linecap: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+.loader__path--a {
+  stroke-width: 34;
+}
+.loader__path--b {
+  stroke-width: 12;
+  opacity: 0.55;
+}
+.loader__sello {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: min(22vh, 180px);
+  width: auto;
+  opacity: 0;
+}
+.loader__skip {
+  position: absolute;
+  bottom: 28px;
+  right: var(--gutter);
+  min-height: 44px;
+  padding: 0 8px;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--washi-40);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .sec-head span {
+    letter-spacing: 0.12em;
+    white-space: nowrap;
+  }
+}

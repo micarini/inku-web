@@ -1,0 +1,77 @@
+.chef__grid {
+  display: grid;
+  grid-template-columns: 44.8% 1fr; /* foto 860 / texto */
+}
+/* la foto se queda fija mientras el texto pasa */
+.chef__foto {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100svh;
+  align-self: start;
+}
+.chef__foto .foto {
+  height: 100%;
+}
+.chef__texto {
+  padding: 0 var(--gutter) 0 clamp(24px, 8.6vw, 10.4rem);
+}
+.chef__bloque {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+  min-height: 100svh;
+  padding-top: clamp(96px, 8rem, 140px);
+}
+.chef .ja {
+  color: var(--washi-40);
+}
+.chef .titulo {
+  margin: 0.6rem 0 clamp(20px, 2.4rem, 44px);
+}
+.chef__valores {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(20px, 3.4rem, 60px);
+  padding-bottom: clamp(120px, 34vh, 380px);
+  font-family: var(--serif);
+  font-size: clamp(18px, 1.6rem, 1.9rem);
+}
+.chef__valores li {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.chef__punto {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--sello);
+  flex: none;
+}
+/* un solo acento rojo por pantalla: el punto de "Un solo gesto" */
+.chef__punto.is-rojo {
+  background: var(--sello);
+}
+@media (max-width: 767px) {
+  .chef__grid {
+    grid-template-columns: 1fr;
+  }
+  .chef__foto {
+    position: relative;
+    height: 78svh;
+  }
+  .chef__texto {
+    padding: 0 16px;
+  }
+  .chef__bloque {
+    min-height: 0;
+    padding-top: 56px;
+  }
+  .chef__valores {
+    flex-direction: column;
+    gap: 14px;
+    padding: 36px 0 72px;
+  }
+}

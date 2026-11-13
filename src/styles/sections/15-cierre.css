@@ -1,0 +1,89 @@
+.cierre {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100svh;
+}
+.cierre__in {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(96px, 8rem, 130px) var(--gutter) 2rem;
+  text-align: center;
+}
+.cierre__logo {
+  width: clamp(220px, 28.4vw, 34rem);
+}
+.cierre__ja {
+  margin-top: clamp(24px, 3rem, 52px);
+  font-family: var(--serif);
+  font-size: clamp(20px, 1.75rem, 2rem);
+  letter-spacing: 0.3em;
+  color: var(--sello);
+}
+.cierre__bajada {
+  margin-top: 0.5rem;
+  font-size: max(12px, 0.85rem);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--washi-70);
+}
+.cierre__volver {
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  min-height: 44px;
+  margin-top: clamp(40px, 5rem, 88px);
+  padding: 0 6px 10px;
+  font-size: max(12px, 0.8rem);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+/* trazo de pincel que se dibuja en hover */
+.cierre__volver svg {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 12px;
+  overflow: visible;
+}
+.cierre__volver path {
+  fill: none;
+  stroke: var(--washi);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  vector-effect: non-scaling-stroke;
+  transition: stroke-dashoffset 0.8s var(--ease-ink);
+}
+.cierre__volver:hover path,
+.cierre__volver:focus-visible path {
+  stroke-dashoffset: 0;
+}
+.cierre__creditos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem clamp(24px, 4vw, 5rem);
+  padding: 1.6rem var(--gutter) clamp(24px, 2.4rem, 44px);
+  border-top: 1px solid var(--linea);
+  font-size: clamp(13px, 0.9rem, 1rem);
+  color: var(--washi-70);
+}
+.cierre__creditos p {
+  display: grid;
+  gap: 0.15rem;
+}
+.cierre__nota {
+  margin-left: auto;
+  align-self: end;
+  color: var(--washi-40);
+}
+@media (max-width: 767px) {
+  .cierre__nota {
+    margin-left: 0;
+  }
+}

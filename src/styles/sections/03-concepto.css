@@ -1,0 +1,65 @@
+.concepto__grid {
+  display: grid;
+  grid-template-columns: 53.125% 1fr; /* texto 1020 / foto 900 */
+  min-height: 100vh;
+  min-height: 100svh;
+}
+.concepto__texto {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(110px, 10rem, 170px) var(--gutter) clamp(72px, 6rem, 110px) clamp(16px, 5vw, 6rem);
+}
+.concepto__kata {
+  width: min(100%, clamp(280px, 34vw, 41rem));
+  height: auto;
+  margin-left: -2%;
+  overflow: visible;
+}
+.concepto__kata text {
+  font-family: var(--serif);
+  font-size: 290px;
+  font-weight: 400;
+  fill: var(--washi);
+}
+.concepto .titulo {
+  margin-top: clamp(12px, 1.6rem, 28px);
+}
+.concepto .cuerpo {
+  margin-top: clamp(16px, 1.6rem, 28px);
+}
+.concepto .cuerpo em {
+  font-style: normal;
+  color: var(--washi);
+}
+.concepto .remate {
+  margin-top: clamp(28px, 3.4rem, 60px);
+}
+.concepto__nota {
+  margin-top: clamp(28px, 3.2rem, 56px);
+  padding-left: 1rem;
+  border-left: 1px solid var(--linea);
+  max-width: 24em;
+}
+.concepto__nota .nota {
+  margin-top: 0.3rem;
+  color: var(--washi-70);
+}
+.concepto__foto {
+  min-height: 60vh;
+}
+.concepto__foto img {
+  height: 112%;
+  margin-top: -6%;
+}
+@media (max-width: 767px) {
+  .concepto__grid {
+    grid-template-columns: 1fr;
+  }
+  .concepto__texto {
+    padding: 96px 16px 48px;
+  }
+  .concepto__foto {
+    height: 70svh;
+  }
+}

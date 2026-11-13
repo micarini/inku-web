@@ -1,0 +1,98 @@
+.texturas {
+  overflow: hidden;
+  transition: color 0.8s;
+}
+.texturas__bg,
+.texturas__capa {
+  position: absolute;
+  inset: 0;
+}
+/* crossfade de 0,8 s al cambiar de textura */
+.texturas__capa {
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 0.8s var(--ease-ink);
+}
+.texturas__capa.is-on {
+  opacity: 1;
+}
+.texturas__bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--tinta);
+  opacity: 0;
+  transition: opacity 0.8s;
+}
+.texturas.is-activa:not(.is-clara) .texturas__bg::after {
+  opacity: 0.66;
+}
+.texturas.is-clara {
+  --fg: var(--tinta);
+  --fg-70: rgb(12 12 10 / 0.75);
+  --fg-40: rgb(12 12 10 / 0.55);
+}
+.texturas.is-clara .texturas__bg::after {
+  background: var(--washi);
+  opacity: 0.5;
+}
+.texturas__in {
+  position: relative;
+  z-index: 2;
+  padding-block: clamp(110px, 9rem, 150px) clamp(64px, 6rem, 100px);
+}
+.texturas__head {
+  display: grid;
+  gap: 0.4rem;
+}
+.texturas__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(8px, 1.5rem, 24px);
+  margin-top: clamp(28px, 3rem, 52px);
+}
+.textura {
+  display: grid;
+  gap: 0.2rem;
+  width: 100%;
+  text-align: left;
+}
+.textura .foto {
+  display: block;
+  aspect-ratio: 414 / 560;
+  max-height: 58vh;
+  width: 100%;
+  margin-bottom: 0.9rem;
+  transition: transform 0.6s var(--ease-out);
+}
+.textura:hover .foto,
+.textura[aria-pressed="true"] .foto {
+  transform: translateY(-4px);
+}
+.textura strong {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(16px, 1.3rem, 1.45rem);
+}
+.textura__uso {
+  font-size: clamp(13px, 0.9rem, 1rem);
+  color: var(--fg-70);
+}
+.solo-touch {
+  display: none;
+}
+@media (hover: none) {
+  .solo-mouse {
+    display: none;
+  }
+  .solo-touch {
+    display: inline;
+  }
+}
+@media (max-width: 767px) {
+  .texturas__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px 12px;
+  }
+}

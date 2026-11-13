@@ -1,0 +1,101 @@
+.feed {
+  display: flex;
+  align-items: center;
+}
+.feed__in {
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  gap: clamp(28px, 5vw, 7rem);
+  align-items: center;
+  padding-block: clamp(110px, 9rem, 150px) clamp(64px, 6rem, 100px);
+}
+.feed__texto .ja {
+  margin: 0.4rem 0 1.2rem;
+}
+.feed__leyenda {
+  display: grid;
+  gap: 0.2rem;
+  margin-top: clamp(32px, 4rem, 72px);
+}
+.feed__leyenda button {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  min-height: 44px;
+  font-family: var(--serif);
+  font-size: clamp(17px, 1.4rem, 1.6rem);
+  color: var(--washi-70);
+  transition: color 0.3s, transform 0.5s var(--ease-out);
+}
+.feed__leyenda button:hover,
+.feed__leyenda button[aria-pressed="true"] {
+  color: var(--washi);
+  transform: translateX(6px);
+}
+.feed__punto {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--sello);
+  flex: none;
+}
+/* Marco de teléfono minimalista: solo el contorno */
+.feed__tel {
+  justify-self: center;
+  width: min(100%, clamp(280px, 27vw, 33rem));
+  padding: clamp(14px, 1.4rem, 24px) clamp(10px, 0.9rem, 16px) clamp(20px, 2rem, 36px);
+  border: 1px solid var(--washi-40);
+  border-radius: clamp(26px, 2.6rem, 44px);
+}
+.feed__perfil {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0.6rem 0.4rem 1rem;
+}
+.feed__perfil img {
+  width: 54px;
+  height: 54px;
+  padding: 12px 7px;
+  border: 1px solid var(--linea);
+  border-radius: 50%;
+  object-fit: contain;
+}
+.feed__perfil p {
+  display: grid;
+  line-height: 1.4;
+}
+.feed__perfil strong {
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+}
+.feed__perfil span {
+  font-size: 12px;
+  color: var(--washi-70);
+}
+.feed__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3px;
+}
+.feed__post {
+  aspect-ratio: 1;
+  overflow: hidden;
+  background: var(--madera);
+  transition: opacity 0.5s var(--ease-ink), filter 0.5s;
+}
+.feed__post img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.feed.is-filtrando .feed__post:not(.is-on) {
+  opacity: 0.16;
+  filter: grayscale(1);
+}
+@media (max-width: 1023px) {
+  .feed__in {
+    grid-template-columns: 1fr;
+  }
+}

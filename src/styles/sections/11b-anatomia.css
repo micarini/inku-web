@@ -1,0 +1,162 @@
+.anat {
+  overflow: hidden;
+  --bg: #070706;
+}
+.anat__pin {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 30%) 1fr;
+  height: 100vh;
+  height: 100svh;
+  min-height: 560px;
+}
+.anat__texto {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.2rem;
+  padding: clamp(96px, 8rem, 130px) 0 0 var(--gutter);
+  position: relative;
+  z-index: 2;
+}
+.anat__texto .titulo {
+  font-size: clamp(34px, 3.9vw, 5rem);
+}
+.anat__stage {
+  position: relative;
+}
+.anat__nigiri {
+  position: absolute;
+  left: 38%;
+  top: 52%;
+  width: 0;
+  height: 0;
+}
+.anat__capa {
+  position: absolute;
+  left: 0;
+  top: 0;
+  translate: -50% -50%;
+  will-change: transform;
+}
+.anat__capa img,
+.anat__capa svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.anat__capa--neta {
+  width: clamp(200px, 19vw, 24rem);
+  z-index: 3;
+}
+.anat__capa--nikiri {
+  width: clamp(150px, 14vw, 18rem);
+  rotate: -21deg;
+  z-index: 4;
+}
+.anat__capa--wasabi {
+  width: clamp(48px, 4.6vw, 5.8rem);
+  z-index: 2;
+}
+/* la foto del arroz es vertical: se acuesta */
+.anat__capa--shari {
+  width: clamp(96px, 10.2vw, 13rem);
+  rotate: 90deg;
+  z-index: 1;
+}
+.falta--pieza {
+  aspect-ratio: 1;
+  border-radius: 50%;
+}
+.anat__labels {
+  position: absolute;
+  left: 38%;
+  top: 52%;
+}
+.anat__label {
+  position: absolute;
+  left: clamp(120px, 15vw, 19rem);
+  top: 0;
+  translate: 0 -50%;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: max-content;
+  max-width: 24vw;
+  font-size: clamp(13px, 1rem, 1.1rem);
+  color: var(--washi-70);
+  line-height: 1.4;
+}
+.anat__label strong {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 1.35em;
+  color: var(--washi);
+}
+.anat__linea {
+  flex: none;
+  width: clamp(40px, 6vw, 7.5rem);
+  height: 1px;
+  background: var(--washi-40);
+}
+/* único acento de la pantalla: el nikiri */
+.anat__label.is-rojo,
+.anat__label.is-rojo strong {
+  color: var(--sello);
+}
+.anat__label.is-rojo .anat__linea {
+  background: var(--sello);
+}
+
+/* Sin pin (celular / reduced-motion): vista explotada fija, apilada */
+.anat.is-static .anat__pin {
+  grid-template-columns: 1fr;
+  height: auto;
+  min-height: 0;
+}
+.anat.is-static .anat__texto {
+  padding: 96px var(--gutter) 24px;
+}
+.anat.is-static .anat__stage {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  align-items: stretch;
+  padding: 24px var(--gutter) 72px;
+  gap: 12px;
+}
+.anat.is-static .anat__nigiri,
+.anat.is-static .anat__labels {
+  position: static;
+  width: auto;
+  height: auto;
+  display: grid;
+  grid-template-rows: repeat(4, minmax(110px, 1fr));
+  align-items: center;
+}
+.anat.is-static .anat__capa {
+  position: static;
+  translate: none;
+  justify-self: center;
+}
+.anat.is-static .anat__capa--neta {
+  width: min(100%, 220px);
+}
+.anat.is-static .anat__capa--nikiri {
+  width: min(86%, 190px);
+  rotate: 0deg;
+}
+.anat.is-static .anat__capa--wasabi {
+  width: 64px;
+}
+.anat.is-static .anat__capa--shari {
+  width: 96px;
+}
+.anat.is-static .anat__label {
+  position: static;
+  translate: none;
+  max-width: none;
+  width: auto;
+}
+.anat.is-static .anat__linea {
+  width: 24px;
+}

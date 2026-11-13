@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>INKU · Manual de marca</title>
+    <meta name="description" content="INKU インク — omakase de autor sin gluten. Manual de marca: logotipo, sello, paleta, tipografía, fotografía, aplicaciones y un omakase para armar y sellar." />
+    <meta name="theme-color" content="#0C0C0A" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="INKU · Manual de marca" />
+    <meta property="og:description" content="Omakase de autor. Un solo gesto." />
+    <meta property="og:image" content="/og.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="preload" as="image" href="/assets/fotos/hero-palillos-maki.webp" imagesrcset="/assets/fotos/hero-palillos-maki-960.webp 907w, /assets/fotos/hero-palillos-maki.webp 1889w" imagesizes="(min-width: 768px) 53vw, 100vw" />
+    <link rel="preload" as="image" href="/assets/logo/inku-principal.svg" />
+  </head>
+  <body class="is-loading">
+    <a class="skip" href="#contenido">Saltar al contenido</a>
+
+    <!-- 00 · Intro / loader -->
+    <div class="loader" id="loader" role="status" aria-label="Cargando INKU">
+      <svg class="loader__stroke" viewBox="0 0 1200 220" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+        <defs>
+          <filter id="tinta-borde" x="-5%" y="-40%" width="110%" height="180%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.018 0.09" numOctaves="3" seed="7" result="n" />
+            <feDisplacementMap in="SourceGraphic" in2="n" scale="26" xChannelSelector="R" yChannelSelector="G" />
+          </filter>
+        </defs>
+        <g filter="url(#tinta-borde)">
+          <path class="loader__path loader__path--a" d="M60 118 C 260 92, 420 132, 610 108 S 980 96, 1140 112" pathLength="1" />
+          <path class="loader__path loader__path--b" d="M90 126 C 300 112, 520 136, 700 118 S 1010 112, 1100 122" pathLength="1" />
+        </g>
+      </svg>
+      <img class="loader__sello" src="/assets/sello/sello-inku.svg" alt="" width="250" height="520" />
+      <button class="loader__skip" type="button">Saltar</button>
+    </div>
+
+    <header class="topbar" id="topbar">
+      <a class="topbar__sello" href="#portada" aria-label="INKU — volver al inicio" data-cursor>
+        <img src="/assets/sello/sello-inku.svg" alt="" width="250" height="520" />
+      </a>
+      <p class="topbar__label" aria-live="off"><span id="nav-num">01</span> — <span id="nav-name">Portada</span></p>
+    </header>
+    <div class="progress" aria-hidden="true"><span id="progress-fill"></span></div>
+
+    <main id="contenido"></main>
+    <footer id="cierre" class="sec sec--tinta cierre" data-nav="15" data-name="Cierre"></footer>
+
+    <div class="cursor" id="cursor" aria-hidden="true"><span></span></div>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

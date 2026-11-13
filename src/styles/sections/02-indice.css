@@ -1,0 +1,97 @@
+.indice {
+  display: flex;
+  align-items: center;
+}
+.indice__grid {
+  display: grid;
+  grid-template-columns: 4fr 8fr;
+  gap: clamp(32px, 5vw, 6rem);
+  padding-block: clamp(96px, 11rem, 180px) clamp(64px, 7rem, 120px);
+}
+.indice__titulo .ja {
+  margin-top: 0.6rem;
+  color: var(--washi-40);
+}
+.indice__lista {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(5, auto);
+  column-gap: clamp(24px, 5vw, 6rem);
+}
+.indice__lista a {
+  position: relative;
+  display: flex;
+  align-items: baseline;
+  gap: clamp(16px, 2.2rem, 40px);
+  min-height: 44px;
+  padding: clamp(18px, 2.1rem, 36px) 0;
+  border-bottom: 1px solid var(--linea);
+}
+/* hover: se desliza una línea y el número cambia a washi */
+.indice__lista a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 100%;
+  height: 1px;
+  background: var(--washi-40);
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  transition: transform 0.6s var(--ease-ink);
+}
+.indice__lista a:hover::after,
+.indice__lista a:focus-visible::after {
+  transform: scaleX(1);
+}
+.indice__n {
+  font-family: var(--serif);
+  font-size: clamp(18px, 1.75rem, 2rem);
+  color: var(--sello);
+  transition: color 0.3s;
+  min-width: 2.2em;
+}
+.indice__lista a:hover .indice__n,
+.indice__lista a:focus-visible .indice__n {
+  color: var(--washi);
+}
+.indice__t {
+  font-family: var(--serif);
+  font-size: clamp(22px, 2.15rem, 2.4rem);
+  line-height: 1.2;
+  white-space: nowrap;
+  transition: transform 0.6s var(--ease-out);
+}
+.indice__lista a:hover .indice__t {
+  transform: translateX(8px);
+}
+.indice__sello {
+  height: clamp(30px, 2.6rem, 44px);
+  width: auto;
+  align-self: center;
+  margin-right: calc(clamp(16px, 2.2rem, 40px) * 0.35);
+}
+.indice__ja {
+  font-size: 0.5em;
+  color: var(--washi-40);
+  margin-left: 0.4em;
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+}
+
+@media (max-width: 1023px) {
+  .indice__grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 767px) {
+  .indice__t {
+    white-space: normal;
+  }
+  .indice__lista {
+    grid-template-columns: 1fr;
+    grid-auto-flow: row;
+    grid-template-rows: none;
+  }
+}

@@ -1,0 +1,263 @@
+/* ── Menús: hojas de papel en abanico sobre madera ── */
+.menus {
+  overflow: hidden;
+}
+.menus__in {
+  display: grid;
+  grid-template-columns: 3fr 9fr;
+  gap: clamp(24px, 4vw, 5rem);
+  align-items: center;
+  min-height: 100vh;
+  min-height: 100svh;
+  padding-block: clamp(110px, 9rem, 150px) clamp(48px, 4rem, 70px);
+}
+.menus__head .ja {
+  margin: 0.4rem 0 1rem;
+}
+.menus__mesa {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  gap: 1.2rem;
+}
+.menus__fan {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: clamp(420px, 74vh, 56rem);
+}
+.menu {
+  --h: clamp(280px, 52vh, 38rem);
+  position: relative;
+  flex: none;
+  height: var(--h);
+  aspect-ratio: 1080 / 1927;
+  margin-inline: calc(var(--h) * -0.06);
+  transform-origin: 50% 120%;
+}
+.menu[data-i="0"] { rotate: -9deg; translate: 0 3%; }
+.menu[data-i="1"] { rotate: -3deg; }
+.menu[data-i="2"] { rotate: 3deg; }
+.menu[data-i="3"] { rotate: 9deg; translate: 0 3%; }
+.menu button {
+  display: block;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 10px 24px rgb(0 0 0 / 0.35);
+  transition: transform 0.45s var(--ease-out);
+}
+.menu img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+.menus__mesa:not(.is-open) .menu button:hover,
+.menus__mesa:not(.is-open) .menu button:focus-visible {
+  transform: translateY(-14px);
+}
+/* abierto: una hoja al frente, grande; las otras esperan a los lados */
+.menus__mesa.is-open .menu {
+  rotate: 0deg;
+  translate: none;
+}
+.menus__mesa.is-open .menu.is-active {
+  --h: clamp(400px, 74vh, 56rem);
+  z-index: 4;
+  margin-inline: clamp(12px, 2rem, 36px);
+}
+.menus__mesa.is-open .menu:not(.is-active) {
+  --h: clamp(160px, 30vh, 22rem);
+  opacity: 0.45;
+  margin-inline: 6px;
+}
+.menus__nav {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.menus__nav[hidden] {
+  display: none;
+}
+.menus__btn {
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0 14px;
+  border: 1px solid var(--washi-40);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  transition: background 0.3s, color 0.3s;
+}
+.menus__btn:hover {
+  background: var(--washi);
+  color: var(--tinta);
+}
+.menus__cerrar {
+  margin-left: 1rem;
+}
+
+/* ── Packaging ── */
+.packaging__grid {
+  display: grid;
+  grid-template-columns: 65.6% 1fr; /* foto 1260 / 1920 */
+  min-height: 100vh;
+  min-height: 100svh;
+}
+.packaging__texto {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(110px, 9rem, 150px) var(--gutter) clamp(64px, 6rem, 100px) clamp(24px, 4vw, 5rem);
+}
+.packaging__texto .ja {
+  margin: 0.4rem 0 clamp(16px, 2rem, 36px);
+}
+
+/* ── Indumentaria ── */
+.indum__fotos {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  height: 78vh;
+  min-height: 420px;
+}
+.indum__fotos .foto {
+  height: 100%;
+}
+.indum__in {
+  display: grid;
+  grid-template-columns: 3fr 9fr;
+  gap: clamp(24px, 4vw, 5rem);
+  padding-block: clamp(48px, 5rem, 90px) clamp(72px, 7rem, 120px);
+}
+.indum__in .ja {
+  margin-top: 0.4rem;
+}
+.indum__specs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(24px, 2.6rem, 48px) clamp(24px, 4vw, 5rem);
+}
+.indum__specs dt {
+  font-family: var(--serif);
+  font-size: clamp(17px, 1.35rem, 1.5rem);
+  padding-top: 1rem;
+  border-top: 1px solid var(--linea);
+}
+.indum__specs dd {
+  margin-top: 0.4rem;
+  font-size: clamp(14px, 1rem, 1.05rem);
+  color: var(--washi-70);
+  max-width: 30em;
+}
+
+/* ── Textiles (página washi) ── */
+.textiles__in {
+  padding-block: clamp(110px, 9rem, 150px) clamp(72px, 7rem, 120px);
+}
+.textiles__in > .ja {
+  margin-top: 0.4rem;
+}
+.textiles__grid {
+  display: grid;
+  grid-template-columns: 720fr 780fr;
+  gap: clamp(24px, 5vw, 7rem);
+  align-items: start;
+  margin-top: clamp(32px, 3.6rem, 64px);
+}
+.textiles figure {
+  display: grid;
+  gap: 1.2rem;
+}
+.textiles__tenugui {
+  aspect-ratio: 720 / 520;
+}
+.textiles figcaption {
+  display: grid;
+  gap: 0.3rem;
+  max-width: 30em;
+}
+.textiles figcaption strong {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(18px, 1.5rem, 1.7rem);
+}
+.textiles figcaption span {
+  font-size: clamp(14px, 1rem, 1.05rem);
+  color: var(--fg-70);
+}
+/* Noren: la imagen del manual partida en tres paños que cuelgan de la barra */
+.noren {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  aspect-ratio: 780 / 520;
+  background: var(--washi);
+}
+.noren__barra {
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 6.9%;
+  z-index: 2;
+  background: url("/assets/aplicaciones/noren.webp") top center / 100% auto no-repeat;
+}
+.noren__pano {
+  display: block;
+  margin-top: 4.6%;
+  background: url("/assets/aplicaciones/noren.webp") calc(var(--i) * 50%) 100% / 300% auto no-repeat;
+  transform-origin: 50% 0%;
+  will-change: transform;
+}
+
+@media (max-width: 1023px) {
+  .menus__in,
+  .indum__in {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+@media (max-width: 767px) {
+  .menus__in {
+    min-height: 0;
+    padding-bottom: 64px;
+  }
+  .menus__fan {
+    height: 300px;
+  }
+  .menu {
+    --h: min(176px, 45vw);
+  }
+  .menus__mesa.is-open .menus__fan {
+    height: auto;
+  }
+  .menus__mesa.is-open .menu.is-active {
+    --h: auto;
+    width: min(86vw, 420px);
+    height: auto;
+    margin: 0;
+  }
+  .menus__mesa.is-open .menu:not(.is-active) {
+    display: none;
+  }
+  .packaging__grid {
+    grid-template-columns: 1fr;
+  }
+  .packaging__foto {
+    height: 60svh;
+  }
+  .packaging__texto {
+    padding: 40px 16px 64px;
+  }
+  .indum__fotos {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+  .indum__fotos .foto {
+    aspect-ratio: 4 / 5;
+  }
+  .indum__specs,
+  .textiles__grid {
+    grid-template-columns: 1fr;
+  }
+}

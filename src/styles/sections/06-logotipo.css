@@ -1,0 +1,234 @@
+/* ── Construcción (pinneada ~200vh en desktop) ── */
+.constr__pin {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+}
+.constr__grid {
+  display: grid;
+  grid-template-columns: 3.3fr 5.4fr 3.3fr;
+  gap: clamp(24px, 4vw, 5rem);
+  align-items: center;
+  padding-block: clamp(110px, 9rem, 150px) clamp(56px, 5rem, 90px);
+}
+.constr__texto .ja {
+  margin: 0.4rem 0 clamp(20px, 2.2rem, 40px);
+}
+.constr__logo {
+  position: relative;
+  width: 100%;
+  max-width: min(46rem, 62vh);
+  justify-self: center;
+}
+.constr__logo img {
+  width: 100%;
+}
+.constr__guias {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+.constr__guias line {
+  stroke: var(--washi-40);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+/* único acento de la pantalla: el remate diagonal */
+.constr__guias line.rojo {
+  stroke: var(--sello);
+  stroke-width: 2;
+}
+.constr__notas {
+  display: grid;
+  gap: clamp(20px, 2.6rem, 44px);
+}
+.constr__nota {
+  display: grid;
+  gap: 0.2rem;
+  padding-left: 1rem;
+  border-left: 1px solid var(--linea);
+}
+.constr__nota strong {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(18px, 1.5rem, 1.7rem);
+  line-height: 1.3;
+}
+.constr__nota span:last-child {
+  font-size: clamp(14px, 0.95rem, 1rem);
+  color: var(--washi-70);
+}
+
+/* ── Versiones ── */
+.versiones__in,
+.usos__in,
+.isologo__in {
+  padding-block: clamp(110px, 9rem, 150px) clamp(64px, 6rem, 100px);
+}
+.versiones__grid,
+.usos__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(8px, 1.5rem, 24px);
+  margin-top: clamp(28px, 3rem, 52px);
+}
+.version {
+  position: relative;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 552 / 360;
+  background: var(--tinta);
+  transition: transform 0.35s var(--ease-out);
+}
+.version--washi {
+  background: var(--washi);
+  color: var(--tinta);
+}
+.version--ciruelo {
+  background: var(--ciruelo) url("/assets/ilustraciones/patron-ciruelo.png") 0 0 / 150px;
+}
+.version img {
+  width: 56%;
+  height: 56%;
+  object-fit: contain;
+}
+.version__label {
+  position: absolute;
+  left: 1.2rem;
+  bottom: 1rem;
+  font-size: max(11px, 0.72rem);
+  letter-spacing: 0.12em;
+  color: var(--washi-70);
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.3s, transform 0.35s var(--ease-out);
+}
+.version--washi .version__label {
+  color: rgb(12 12 10 / 0.7);
+}
+.version:hover,
+.version:focus-visible {
+  transform: translateY(-4px);
+}
+.version:hover .version__label,
+.version:focus-visible .version__label {
+  opacity: 1;
+  transform: none;
+}
+@media (hover: none) {
+  .version__label {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ── Isologo y sello (página washi) ── */
+.isologo__grid {
+  display: grid;
+  grid-template-columns: 2.2fr 1fr;
+  gap: clamp(32px, 8vw, 10rem);
+  align-items: end;
+  margin-top: clamp(40px, 5rem, 90px);
+}
+.isologo figure {
+  display: grid;
+  gap: clamp(28px, 4rem, 72px);
+}
+.isologo__pez img {
+  width: min(100%, 48rem);
+}
+.isologo__sello img {
+  height: clamp(220px, 44vh, 32rem);
+  width: auto;
+}
+.isologo figcaption {
+  display: grid;
+  gap: 0.3rem;
+  max-width: 26em;
+}
+.isologo figcaption strong {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(18px, 1.5rem, 1.7rem);
+}
+.isologo figcaption span {
+  font-size: clamp(14px, 1rem, 1.05rem);
+  color: var(--fg-70);
+}
+
+/* ── Usos incorrectos ── */
+.uso__celda {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 552 / 360;
+  background: #16150f;
+  overflow: hidden;
+}
+.uso__logo {
+  width: 42%;
+  aspect-ratio: 779 / 570;
+  background: url("/assets/logo/inku-principal.svg") center / contain no-repeat;
+}
+.uso--estirar .uso__logo {
+  transform: scale(1.7, 0.5);
+}
+.uso--color .uso__logo {
+  background: #3a8fd4;
+  -webkit-mask: url("/assets/logo/inku-principal.svg") center / contain no-repeat;
+  mask: url("/assets/logo/inku-principal.svg") center / contain no-repeat;
+}
+.uso--rotar .uso__logo {
+  transform: rotate(-18deg);
+}
+.uso--sombra .uso__celda {
+  background: var(--washi);
+}
+.uso--sombra .uso__logo {
+  background-image: url("/assets/logo/inku-principal-tinta.svg");
+  filter: drop-shadow(7px 7px 0 rgb(196 42 38 / 0.85)) blur(0.3px);
+}
+.uso--ruido .uso__celda {
+  background: url("/assets/fotos/indumentaria-04-960.webp") center / cover;
+}
+.uso--proporcion .uso__logo {
+  width: 70%;
+  aspect-ratio: 440 / 189;
+  background:
+    url("/assets/logo/pez.svg") center top / 100% auto no-repeat,
+    url("/assets/logo/inku-wordmark.svg") 78% bottom / 24% auto no-repeat;
+}
+.uso p {
+  margin-top: 0.7rem;
+  font-size: clamp(13px, 0.9rem, 1rem);
+  color: var(--washi-70);
+}
+.uso__x {
+  color: var(--sello);
+  font-weight: 400;
+  margin-right: 0.3em;
+}
+
+@media (max-width: 1023px) {
+  .constr__grid {
+    grid-template-columns: 1fr;
+  }
+  .constr__logo {
+    max-width: min(80%, 420px);
+    margin-block: 24px;
+  }
+  .versiones__grid,
+  .usos__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 767px) {
+  .isologo__grid {
+    grid-template-columns: 1fr;
+  }
+  .isologo__sello img {
+    height: 240px;
+  }
+}

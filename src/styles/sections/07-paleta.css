@@ -1,0 +1,152 @@
+.paleta {
+  height: 100vh;
+  height: 100svh;
+  min-height: 560px;
+  overflow: hidden;
+}
+.paleta__texto {
+  position: absolute;
+  z-index: 3;
+  top: clamp(110px, 9rem, 150px);
+  left: var(--gutter);
+  width: min(30%, 26rem);
+  pointer-events: none;
+}
+.paleta__texto .ja {
+  margin: 0.4rem 0 1.2rem;
+}
+.paleta__texto .nota {
+  margin-top: 1.4rem;
+}
+/* Cinco franjas a pantalla completa; el ancho refleja el uso real */
+.paleta__franjas {
+  display: flex;
+  height: 100%;
+}
+.franja {
+  flex: var(--pct) 1 0;
+  min-width: 0;
+  transition: flex-grow 0.9s var(--ease-ink);
+}
+.franja.is-open {
+  flex-grow: calc(var(--pct) + 26);
+}
+.franja button {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-align: left;
+  outline-offset: -6px;
+}
+.franja--tinta button {
+  background: var(--tinta);
+}
+.franja--madera button {
+  background: var(--madera);
+}
+.franja--washi button {
+  background: var(--washi);
+  color: var(--tinta);
+}
+.franja--ciruelo button {
+  background: var(--ciruelo);
+}
+.franja--sello button {
+  background: var(--sello);
+}
+.franja__pct {
+  position: absolute;
+  left: clamp(10px, 1.4rem, 24px);
+  bottom: clamp(20px, 3.4rem, 56px);
+  font-size: max(11px, 0.72rem);
+  letter-spacing: 0.2em;
+  opacity: 0.55;
+  writing-mode: vertical-rl;
+  transition: opacity 0.3s;
+}
+.franja__info {
+  position: absolute;
+  left: clamp(14px, 2rem, 36px);
+  bottom: clamp(20px, 3.4rem, 56px);
+  display: grid;
+  gap: 0.15rem;
+  width: max-content;
+  max-width: 16rem;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.35s, transform 0.5s var(--ease-out);
+  pointer-events: none;
+}
+.franja__info strong {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(20px, 1.9rem, 2.1rem);
+  line-height: 1.2;
+}
+.franja__hex {
+  font-size: clamp(13px, 0.95rem, 1rem);
+  letter-spacing: 0.12em;
+}
+.franja__uso {
+  font-size: clamp(13px, 0.9rem, 1rem);
+  opacity: 0.7;
+}
+.franja.is-open .franja__info {
+  opacity: 1;
+  transform: none;
+  transition-delay: 0.25s;
+}
+.franja.is-open .franja__pct {
+  opacity: 0;
+}
+/* la franja tinta lleva el texto de la sección: su info va abajo igual */
+@media (max-width: 767px) {
+  .paleta {
+    height: auto;
+    min-height: 0;
+  }
+  .paleta__texto {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: auto;
+    padding: 96px 16px 28px;
+  }
+  .paleta__franjas {
+    flex-direction: column;
+    height: 110svh;
+  }
+  .franja__pct {
+    writing-mode: horizontal-tb;
+    left: auto;
+    right: 16px;
+    bottom: 50%;
+    transform: translateY(50%);
+  }
+  .franja__info {
+    left: 16px;
+    bottom: 50%;
+    transform: translateY(50%);
+    opacity: 1;
+    grid-auto-flow: column;
+    align-items: baseline;
+    gap: 0.8rem;
+    max-width: none;
+  }
+  .franja.is-open .franja__info {
+    transform: translateY(50%);
+  }
+  .franja__info strong {
+    font-size: 18px;
+  }
+  .franja__uso {
+    display: none;
+  }
+  .franja.is-open .franja__pct {
+    opacity: 0.55;
+  }
+  .franja {
+    min-height: 44px;
+  }
+}

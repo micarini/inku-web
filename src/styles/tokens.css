@@ -1,0 +1,40 @@
+:root {
+  --tinta: #0c0c0a; /* Negro tinta: fondo principal */
+  --madera: #2b261e; /* Madera: fondos secundarios, tabla */
+  --washi: #f4efe3; /* Papel washi: texto sobre negro, páginas claras */
+  --sello: #c42a26; /* Rojo sello: ÚNICO acento, nunca protagonista */
+  --ciruelo: #380706; /* Bordó ciruelo: patrón, bloques de marca */
+  --washi-70: rgb(244 239 227 / 0.7);
+  --washi-40: rgb(244 239 227 / 0.4);
+  --linea: rgb(244 239 227 / 0.12);
+
+  --serif: "Shippori Mincho", "Hiragino Mincho ProN", "Yu Mincho", serif; /* títulos, destacados, kanji */
+  --sans: "Zen Kaku Gothic New", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif; /* textos, menús, datos */
+
+  --ease-ink: cubic-bezier(0.65, 0.05, 0.36, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-s: 0.6s;
+  --dur-m: 1s;
+  --dur-l: 1.6s;
+
+  --gutter: clamp(16px, 4vw, 72px);
+  --maxw: 1600px;
+
+  /* Tema por defecto (sección tinta). Cada .sec--* redefine estos cinco. */
+  --bg: var(--tinta);
+  --fg: var(--washi);
+  --fg-70: var(--washi-70);
+  --fg-40: var(--washi-40);
+  --line: var(--linea);
+}
+
+/* En pantallas de 1920 o más todo escala junto (rem) sin perder márgenes. */
+@media (min-width: 1920px) {
+  html {
+    font-size: 0.8334vw;
+  }
+  :root {
+    --gutter: 4.5rem;
+    --maxw: 100rem;
+  }
+}
